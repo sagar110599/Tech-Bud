@@ -1,0 +1,76 @@
+<div class="card mx-auto" style="width: 600px">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" ngNativeValidate>
+      <div class="card-body">
+        <h3>Create Your Blog</h3>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            appTitleCase
+            formControlName="title"
+          required/>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="subtitle">Tags</label>
+          <input
+            type="text"
+            class="form-control"
+            id="tags"
+            formControlName="tags"
+          />
+          
+          <div class="main">
+            <span *ngFor='let item of tagsData;let i=index;' (click)="tagRemove(i)"> <a class="tag red" >{{item}}</a> </span>
+          </div>
+          <br>
+          <button type="button" class="btn btn-block btn-raised btn-success" (click)="addTag()">Add</button>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="summary">Summary</label>
+          <textarea
+            class="form-control md-textarea-auto"
+            id="summary"
+            formControlName="summary"
+            rows="3" required
+          ></textarea>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="description">Main Body</label>
+          <textarea
+            class="form-control md-textarea-auto"
+            id="description"
+            formControlName="description"
+            name="description"
+            rows="10" required
+          ></textarea>
+        </div>
+        <br>
+        
+        <br>
+        <div class="form-group">
+          <label for="imageUrl">Thumbnail Image</label>
+          <br>
+          <input
+            class="btn btn-outline-primary"
+            type="file"
+            (change)="selectImage($event)"
+            accept="image/*"
+          required/>
+        </div>
+      </div>
+      <div class="card-footer">
+          <div class="row">
+              <div class="col-sm"><button class="btn btn-block btn-raised btn-success">Post</button></div>
+              <div class="col-sm"><a (click)="clear()" class="btn btn-block btn-raised btn-secondary">Clear</a></div>
+            </div>  
+          
+        
+        
+      </div>
+    </form>
+  </div>

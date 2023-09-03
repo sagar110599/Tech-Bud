@@ -1,0 +1,24 @@
+<div *ngFor="let site of feed">
+  <div *ngFor="let channel of site.rss.channel">
+    <div class="source">
+     <img *ngIf="channel.image !== undefined" src="{{channel.image[0].url}}">
+      {{channel.title[0]}}
+    </div>
+    <div class="card-deck">
+      <div cardHighlight *ngFor="let item of channel.item | slice:0:9" class="card">
+        <div *ngIf="item.image !== undefined">
+          <img src="{{item.image[0].url}}" class="card-img-top" alt="{{item.image[0].title}}" />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{item.title[0]}}</h5>
+          <span *ngFor="let category of item.category | slice:0:3" class="badge badge-dark">
+            {{category}}
+          </span>
+          <p class="card-text" [innerHTML]="item.description[0] | slice:0:150"></p>
+          <a href="{{item.link[0]}}" class="btn btn-warning card-link" style="float: right; margin-bottom: 10px;">Read more</a>
+        </div>
+      </div>
+    </div>
+    <hr>
+  </div>
+</div>

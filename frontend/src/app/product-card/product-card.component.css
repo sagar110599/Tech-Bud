@@ -1,0 +1,25 @@
+.card {
+  text-align: center;
+  align-items: center;
+  margin-bottom: 50px;
+  border-radius: 25px;
+}
+
+img {
+  padding-top: 20px;
+  width: fit-content;
+  mix-blend-mode: multiply;
+  
+}
+
+.knowmore{
+    background-color: #ffcc29;
+    border-radius: 12px;
+    font-weight: 600;
+    border-color: #ffcc29;
+}
+
+.card-text{
+  margin-bottom:0px ;
+}
+

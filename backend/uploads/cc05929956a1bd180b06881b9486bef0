@@ -1,0 +1,2 @@
+sudo ifconfig wlp0s20f3 down
+sudo modprobe -r iwlwifi

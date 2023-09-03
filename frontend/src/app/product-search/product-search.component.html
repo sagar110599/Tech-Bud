@@ -1,0 +1,47 @@
+<div class="container">
+  <div id="search" class="input-group mb-8 border rounded-pill p-1" style="background-color: white;">
+    <input #query type="search" style="border: white" placeholder="What're you searching for?" aria-describedby="button-addon3" class="form-control bg-none rounded-pill" 
+    (change)="onChange(query.value)"
+    (keyup.Enter)="search()">
+    <div class="input-group-append border-0">
+      <button type="button" id="searchbtn"class="btn btn-link text-secondary" (click)="search()"><i class="fa fa-search"></i></button>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div *ifLoaded="loading">
+    <section class="wrapper">
+      <div class="spinner">
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+      </div>
+    </section>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="row" *ngFor="let row of products">
+        <div class="col-sm" *ngFor="let product of row">
+          <product-card [product]=product></product-card>
+        </div>
+      </div>
+    </div> 
+    
+    <div *ngIf="products.length!=0 && reviews.length!=0" class="col col-lg-3 overflow-auto tweets">
+      <div class="card border-light">
+        <img class="tweetimg" src="../../assets/twitter.png">
+        <h3>What're people saying about this product?</h3>
+        <div *ngFor="let review of reviews">
+          <img class="profilepic" src="{{review.profile_pic}}">
+          <h5>{{review.username}}</h5>
+          <h6>{{review.tweet}}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

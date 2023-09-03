@@ -1,0 +1,101 @@
+<div class="page-content page-container" id="page-content">
+  <div class="padding d-flex justify-content-center">
+    <div class="row container d-flex justify-content-center">
+        <div class="card user-card-full">
+          <div class="row m-l-0 m-r-0">
+            <div class="col-sm-4 bg-c-lite-green user-profile">
+              <div class="card-block text-center text-white">
+                <label for="fileToUpload">
+                  <div>
+                    <img class="profile-pic" [src]="imageUrl | imagePipe" />
+                    <span class="glyphicon glyphicon-camera"></span>
+                  </div>
+                </label>
+                <input
+                  type="File"
+                  name="fileToUpload"
+                  id="fileToUpload"
+                  (change)="selectImage($event)"
+                />
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <div class="card-block">
+                <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p class="m-b-10 f-w-600">Email</p>
+                    <h6 class="text-muted f-w-400">{{ email }}</h6>
+                  </div>
+                  <div class="col-sm-6">
+                    <p class="m-b-10 f-w-600">Password</p>
+                    <input
+                      #password
+                      type="password"
+                      class="form-control"
+                      value="{{ pass }}"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p class="m-b-10 f-w-600">First Name</p>
+                    <input
+                      #fn
+                      type="text"
+                      class="form-control"
+                      value="{{ fname }}"
+                    />
+                  </div>
+                  <div class="col-sm-6">
+                    <p class="m-b-10 f-w-600">Last Name</p>
+                    <input
+                      #ln
+                      type="text"
+                      class="form-control"
+                      value="{{ lname }}"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p class="m-b-10 f-w-600">Date of Birth</p>
+                    <input
+                      #date
+                      type="date"
+                      class="form-control"
+                      [value]="dob | date: 'yyyy-MM-dd'"
+                    />
+                  </div>
+                  <div class="col-sm-6">
+                    <p class="m-b-10 f-w-600">Age</p>
+                    <h6 class="text-muted f-w-400">
+                      {{ dob | date: 'yyyy-MM-dd' | age }}
+                    </h6>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <button
+                      class="btn btn-primary"
+                      (click)="
+                        update(password.value, fn.value, ln.value, date.value)
+                      "
+                    >
+                      Update
+                    </button>
+                  </div>
+                  <div class="col-sm-6">
+                    <button class="btn btn-danger" (click)="delete()">
+                      Delete Profile
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

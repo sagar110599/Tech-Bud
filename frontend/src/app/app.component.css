@@ -1,0 +1,23 @@
+.techbud{
+    background-color:#276678;
+    padding: 20px;
+}
+
+.title{
+    color: #ffff;
+    font-family: 'Fjalla One', sans-serif;
+}
+
+.navbar{
+    height: 75px;
+    padding: 25px;
+}
+
+.dropdown{
+    float: right;
+}
+
+.nav-item{
+    font-size: 20px;
+    padding-inline: 5px;
+}
